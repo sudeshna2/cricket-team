@@ -44,7 +44,7 @@ app.get('/players/', async (request, response) => {
     FROM
       cricket_team;`
   const playersArray = await database.all(getPlayersQuery)
-  response.send(    
+  response.send(
     playersArray.map(eachPlayer => convertDbObjectToResponseObject(eachPlayer)),
   )
 })
@@ -101,4 +101,3 @@ app.delete('/players/:playerId/', async (request, response) => {
   response.send('Player Removed')
 })
 module.exports = app
-
